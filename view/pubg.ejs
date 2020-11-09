@@ -124,7 +124,9 @@
       </div>
  
  &nbsp;
+ 
       <div class="container">
+        <form action="/login">
         <div id="top1" class="card col-lg-3 col-md-3 col-sm-3 col-xs-2">
           <img class="img" src="/images/cardpubg.jpg" alt="PUBG" >
             <div class="container">
@@ -135,9 +137,11 @@
               <span>Solo Entry Only</span><br>
                <div class="glyphicon glyphicon-flash"></div>
               <span>Prize Pool: ₹500</span>
-              <p><button onclick="location.href='/login'">Join Free</button></p>
+              <input type="hidden" name="gameDetails" value="Pubg">
+              <p><button type="submit" onclick="location.href='/login'">Join Free</button></p>
             </div>
         </div>
+      </form>
         <div id="top2" class="card col-lg-3 col-md-3 col-sm-3 col-xs-2">
           <img class="img" src="/images/cardfreefire.jpg" alt="PUBG">
             <div class="container">
