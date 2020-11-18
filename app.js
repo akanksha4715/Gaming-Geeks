@@ -9,6 +9,7 @@ app.set('views','view');
 app.use(bodyParser.urlencoded({extended:false}));     //will parse all the incoming text
 app.use(express.static(path.join(__dirname,'public')));
 
+const database= require('./util/db');
 const loginroutes = require('./routes/loginpage');
 const homeroutes = require('./routes/home');
 const error_routes = require('./routes/404');
@@ -20,7 +21,10 @@ app.use(error_routes);
 
 
 const server = http.createServer(app);
-server.listen(3000);
+database(client=>{
+    server.listen(3000);
+    console.log(client);
+});
 
 
 
