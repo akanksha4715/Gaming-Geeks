@@ -1,14 +1,24 @@
 const mongodb = require('mongodb');
 const mongoClient = mongodb.MongoClient;
+let db;
 const mongoconnectionstring='mongodb+srv://Akanksha_Tomar:akto300247@clustergame.7sfe7.mongodb.net/trialdb?retryWrites=true&w=majority';
+
 const mongoconnect = callback=>{
     mongoClient.connect(mongoconnectionstring,{useNewUrlParser: true, useUnifiedTopology: true })
     .then(client=>{
         console.log('connected');
-        callback(client);
+        db=client.db();
+        callback();
     })
     .catch(err=>{
     console.log(err);
     });
 }
-module.exports=mongoconnect;
+const getdb=()=>{
+    if(db){
+        return db;
+    }
+    throw 'no db found';
+}
+exports.mongoconnect=mongoconnect;
+exports.getdb=getdb;
