@@ -14,6 +14,7 @@
 <body>
 <h2>ENTER THE TOURNAMENT</h2>
 <form action="/login" method="post">
+  <input type="hidden" name="gameDetails" value="<%= gameDetails %>">
     <label for="uname">ENTER YOUR GAME ID</label><br>
     <input type="text" name="uname" placeholder="jetInsider" required><br>
     <label for="age">ENTER YOUR AGE</label><br>

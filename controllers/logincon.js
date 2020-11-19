@@ -6,14 +6,16 @@ const customers=[];
 const p = path.join(path.dirname(process.mainModule.filename),'data','customers.json'); //process.mainModule.filename will return the location of the main file which run the server.
 
 exports.getloginpage=((req,res,next)=>{
-    res.render('login');
+    console.log(req.query.gameDetails);
+    res.render('login',{gameDetails: req.query.gameDetails});
     });
 
 exports.addlogindetails=(req,res,next)=>{
-        const querystrin =url.parse(req.url,true).search;
-        customers.push({Game: req.query, Id : req.body.uname, Age : req.body.age});
+       // const querystrin =url.parse(req.url,true)
+        customers.push({Game: req.body.gameDetails, Id : req.body.uname, Age : req.body.age});
         console.log(customers);
-        console.log(querystrin);
+        console.log(req.query);
+       // console.log(querystrin);
         fs.writeFile(p, JSON.stringify(customers),err=>{
             console.log(err);
         });
