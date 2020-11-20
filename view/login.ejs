@@ -14,7 +14,13 @@
 <body>
 <h2>ENTER THE TOURNAMENT</h2>
 <form action="/login" method="post">
-  <input type="hidden" name="gameDetails" value="<%= gameDetails %>">
+  <input type="hidden" name="gameid" value="<%= gameid %>">
+  <input type="hidden" name="gamename" value="<%= gamename %>">
+  <input type="hidden" name="date" value="<%= date %>">
+  <input type="hidden" name="time" value="<%= time %>">
+  <input type="hidden" name="person_no" value="<%= Members_per_team_allowed %>">
+  <input type="hidden" name="prizepool" value="<%= PrizePool %>">
+
     <label for="uname">ENTER YOUR GAME ID</label><br>
     <input type="text" name="uname" placeholder="jetInsider" required><br>
     <label for="age">ENTER YOUR AGE</label><br>
