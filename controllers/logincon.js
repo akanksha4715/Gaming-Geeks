@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const Candidates=require('../model/candidates');
-const customers_arr=[];
-const p = path.join(path.dirname(process.mainModule.filename),'data','customers.json'); //process.mainModule.filename will return the location of the main file which run the server.
+//const customers_arr=[];
+//const p = path.join(path.dirname(process.mainModule.filename),'data','customers.json'); //process.mainModule.filename will return the location of the main file which run the server.
 
 exports.getloginpage=((req,res,next)=>{
     //console.log(req.query.gamename);
@@ -33,7 +33,7 @@ exports.addlogindetails=(req,res,next)=>{
     });
 }
 else
-res.redirect('*');
+res.send('<h2>You are Underage. Only people who are above 16 can join</h2>');
 
        /* customers_arr.push({Game: req.body.gamename, Date: req.body.date , Time: req.body.time,
             Members_per_team_allowed: req.body.person_no , PrizePool: req.body.prizepool, Id : req.body.uname, Age : req.body.age});

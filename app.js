@@ -13,11 +13,12 @@ const database= require('./util/db').mongoconnect;
 const loginroutes = require('./routes/loginpage');
 const homeroutes = require('./routes/home');
 const error_routes = require('./routes/404');
-
+const joinroutes = require('./routes/joined');
 
 app.use(homeroutes);
 app.use(loginroutes);
 app.use(error_routes);
+//app.use(joinroutes);
 
 
 const server = http.createServer(app);

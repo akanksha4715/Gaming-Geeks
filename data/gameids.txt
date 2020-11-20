@@ -3,3 +3,6 @@ free fire id =110
 codm id =120
  
  gameid= <game> id + date + time(hr)
+
+ NOTE: Game id is primary key.
+ Always make it unique.
