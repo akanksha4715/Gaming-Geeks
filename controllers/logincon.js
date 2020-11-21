@@ -23,7 +23,16 @@ exports.addlogindetails=(req,res,next)=>{
         const Id = req.body.uname;
         const Age = req.body.age;
         if(Age>16){
-    const customers= new Candidates(gameid,game,date,time,Members_per_team_allowed,PrizePool,Id,Age);
+    const customers= new Candidates({
+       gameid : gameid,
+       gamename: game,
+        date: date,
+        time: time,
+       person_no: Members_per_team_allowed,
+        prizepool: PrizePool,
+       username: Id,
+       age: Age
+    });
     customers.save()
     .then(result=>{
         console.log('Data entered');
