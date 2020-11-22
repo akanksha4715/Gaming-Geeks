@@ -22,7 +22,7 @@ exports.addlogindetails=(req,res,next)=>{
        const PrizePool= req.body.prizepool;
         const Id = req.body.uname;
         const Age = req.body.age;
-        if(Age>16){
+        if(Age>=16){
     const customers= new Candidates({
        gameid : gameid,
        gamename: game,
@@ -31,8 +31,10 @@ exports.addlogindetails=(req,res,next)=>{
        person_no: Members_per_team_allowed,
         prizepool: PrizePool,
        username: Id,
-       age: Age
+       age: Age,
+       userid : req.user._id,
     });
+    req.user.addtocart(customers);
     customers.save()
     .then(result=>{
         console.log('Data entered');
@@ -40,16 +42,18 @@ exports.addlogindetails=(req,res,next)=>{
     }).catch(err=>{
         console.log(err);
     });
+    
 }
 else
 res.send('<h2>You are Underage. Only people who are above 16 can join</h2>');
-
-       /* customers_arr.push({Game: req.body.gamename, Date: req.body.date , Time: req.body.time,
-            Members_per_team_allowed: req.body.person_no , PrizePool: req.body.prizepool, Id : req.body.uname, Age : req.body.age});
-        console.log(customers);
-        
-        fs.writeFile(p, JSON.stringify(customers),err=>{
-            console.log(err);
-        });*/
-        
 };
+// exports.postTocart=(req,res,next)=>{
+// const gameid = req.body.gameid;
+// Candidates.findById(gameid)
+// .then(game => {
+//     return req.user.addtocart(game);
+// }).then(result=>{
+//     console.log(result);
+//     
+// });
+// };

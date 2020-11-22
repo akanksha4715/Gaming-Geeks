@@ -18,7 +18,7 @@ const user = new schema({
         items : [
             {
             gameid : {
-                type : schema.Types.ObjectId,
+                type : String,
                 ref : 'customers',
                 required : true
             }
@@ -26,4 +26,16 @@ const user = new schema({
         ]
     }
 });
+user.methods.addtocart = function(game){
+    const updatedcartitems = [...this.cart.items];
+    console.log(updatedcartitems);
+    updatedcartitems.push({
+        gameid: game.gameid,
+    });
+    const updatedcart = {
+        items : updatedcartitems
+    }
+    console.log(updatedcart);
+    this.cart = updatedcart;
+}
 module.exports = mongoose.model('user',user);

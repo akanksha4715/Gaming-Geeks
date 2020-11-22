@@ -15,9 +15,18 @@ const loginroutes = require('./routes/loginpage');
 const homeroutes = require('./routes/home');
 const error_routes = require('./routes/404');
 const joinroutes = require('./routes/joined');
+const User = require('./model/user');
 const mongoconnectionstring='mongodb+srv://Akanksha_Tomar:akto300247@clustergame.7sfe7.mongodb.net/mydb?retryWrites=true&w=majority';
 
-
+app.use((req,res,next)=>{
+User.findById('5fb963ecebb21d2ff04508ee')
+.then(user=>{
+    req.user=user;
+    next();
+}).catch(err=>{
+    console.log(err);
+});
+});
 app.use(homeroutes);
 app.use(loginroutes);
 app.use(error_routes);
@@ -26,6 +35,20 @@ app.use(error_routes);
 
 const server = http.createServer(app);
 mongoose.connect(mongoconnectionstring).then(result=>{
+    User.findOne().then(user=>{
+        if(!user){
+            const user = new User({
+                name : 'Akanksha Tomar',
+                email : 'akanksha4715@gmail.com',
+                password : 'akto300247',
+                cart : {
+                    items:[],
+                }
+            });
+            user.save();
+        }
+        
+    });
     server.listen(3000);
 }).catch(err=>{
     console.log(err);

@@ -33,6 +33,12 @@ const candSchema = new Schema({
         type:String,
         required:true
     },
+    userid : {
+        type: Schema.Types.ObjectId,
+        required : true,
+        ref: 'user'
+
+    }
 });
 module.exports =mongoose.model('Customers',candSchema);
 
