@@ -1,5 +1,3 @@
-
-const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const Candidates=require('../model/candidates');
@@ -34,8 +32,7 @@ exports.addlogindetails=(req,res,next)=>{
        age: Age,
        userid : req.user._id,
     });
-    req.user.addtocart(customers);
-    
+    req.user.addtocart(customers); 
     customers.save()
     .then(result=>{
         console.log('Data entered');
@@ -48,13 +45,16 @@ exports.addlogindetails=(req,res,next)=>{
 else
 res.send('<h2>You are Underage. Only people who are above 16 can join</h2>');
 };
-// exports.postTocart=(req,res,next)=>{
-// const gameid = req.body.gameid;
-// Candidates.findById(gameid)
-// .then(game => {
-//     return req.user.addtocart(game);
-// }).then(result=>{
-//     console.log(result);
-//     
-// });
-// };
+
+exports.getcart=(req,res,next)=>{
+    req.user.populate('cart.item.gameid')
+    .execPopulate().then(user=>{
+        const gamedetails = user.cart.items;
+        res.render('cart',{
+            game : gamedetails,
+        });
+    }).catch(err=>{
+        console.log(err);
+    });
+};
+

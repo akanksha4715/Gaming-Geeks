@@ -28,14 +28,12 @@ const user = new schema({
 });
 user.methods.addtocart = function(game){
     const updatedcartitems = [...this.cart.items];
-    
     updatedcartitems.push({
         gameid: game.gameid,
     });
     const updatedcart = {
         items : updatedcartitems
     }
-    console.log(updatedcart);
     this.cart = updatedcart;
     return this.save();
     

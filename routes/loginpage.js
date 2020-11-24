@@ -6,6 +6,6 @@ const logincontroller = require('../controllers/logincon');
 
 router.get('/login',logincontroller.getloginpage);
 router.post('/login',logincontroller.addlogindetails);
-
+router.get('/cart',logincontroller.getcart);
 
 module.exports = router;      

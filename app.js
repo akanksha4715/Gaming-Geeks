@@ -19,7 +19,7 @@ const User = require('./model/user');
 const mongoconnectionstring='mongodb+srv://Akanksha_Tomar:akto300247@clustergame.7sfe7.mongodb.net/mydb?retryWrites=true&w=majority';
 
 app.use((req,res,next)=>{
-User.findById('5fb963ecebb21d2ff04508ee')
+User.findById('5fbd48074af63036041a9fe5')
 .then(user=>{
     req.user=user;
     next();
