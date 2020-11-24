@@ -84,33 +84,8 @@
     &nbsp;
     <p></p> 
     &nbsp;     
-    
-    <!--FOOTER PART STARTS HERE-->
-  <footer class="panel-footer">
-    <div class="container">
-      <div class="row">
-        <section id="about" class="col-sm-4">
-          <span>About Us</span><br>
-          This
-          is a
-          paragraph 
-          which 
-          explains 
-          'us'.
-        </section>
-        <section id="contact" class="col-sm-4">
-          <span>Contact Us</span><br>
-          <span class="glyphicon glyphicon-earphone"></span>
-          <span>+91-9643143306</span>
-        </section>
-        <section id="rules" class="col-sm-4">
-          <span>Rules</span><br>
-          <span class="glyphicon glyphicon-earphone"></span>
-          <span>blah blah blah</span>
-        </section>
-      </div>
-    </div>
     <!--main content-->	
+ <div class="container">   
     <div class="row">   
         <section>    
           <div id="checkbox" class="col-md-3">
@@ -138,12 +113,49 @@
         </section>  
         <div class="col-md-9">
                 <div class="btn-group btn-group-lg">
-                  <button id="Upcoming" type="button" class="btn btn-primary">Upcoming</button>
-                   <button id="Ongoing" type="button" class="btn btn-primary">Ongoing</button>
-                   <button id="Joined" type="button" class="btn btn-primary onclick="location.href='/joined'">Joined</button>
+                <button id="Upcoming" type="button" class="btn btn-primary">Upcoming</button>
+                <button id="Ongoing" type="button" class="btn btn-primary">Ongoing</button>
+                <button id="Joined" class="<%= path === '/joined' ? 'active' : '' %>" type="button" class="btn btn-primary">Joined</button>
                 </div>
         </div>
-    </div>    
+    </div>  
+    <div class="container">
+        <% if(game.length>0){
+            game.forEach(game=>{%>
+        <div class="card">
+            <h1>
+                <%=game.gameid.gamename%>
+            </h1>
+        </div>
+        <%})}%>
+    </div>
+ </div>     
+    <!--FOOTER PART STARTS HERE-->
+  <footer class="panel-footer">
+    <div class="container">
+      <div class="row">
+        <section id="about" class="col-sm-4">
+          <span>About Us</span><br>
+          This
+          is a
+          paragraph 
+          which 
+          explains 
+          'us'.
+        </section>
+        <section id="contact" class="col-sm-4">
+          <span>Contact Us</span><br>
+          <span class="glyphicon glyphicon-earphone"></span>
+          <span>+91-9643143306</span>
+        </section>
+        <section id="rules" class="col-sm-4">
+          <span>Rules</span><br>
+          <span class="glyphicon glyphicon-earphone"></span>
+          <span>blah blah blah</span>
+        </section>
+      </div>
+    </div>
+    
 	</footer>
 <!-- Return to Top -->
 <a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up" ></i></a>

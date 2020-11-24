@@ -42,6 +42,10 @@ body {
     background-color: #e6001a;
     border: 1px solid White; 
   }
+  .btn-group button:active{
+    background-color: #e6001a;
+    border: 1px solid White; 
+  }
   .btn-group button {
     background-color: rgba(0,0,0,0.95);
     border: 1px solid White; 
