@@ -46,8 +46,7 @@ mongoose.connect(mongoconnectionstring).then(result=>{
                 }
             });
             user.save();
-        }
-        
+        }       
     });
     server.listen(3000);
 }).catch(err=>{

@@ -35,10 +35,11 @@ exports.addlogindetails=(req,res,next)=>{
        userid : req.user._id,
     });
     req.user.addtocart(customers);
+    
     customers.save()
     .then(result=>{
         console.log('Data entered');
-        res.redirect('/home');
+        res.redirect('/cart');
     }).catch(err=>{
         console.log(err);
     });

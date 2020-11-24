@@ -40,7 +40,7 @@ const candSchema = new Schema({
 
     }
 });
-module.exports =mongoose.model('Customers',candSchema);
+module.exports =mongoose.model('customers',candSchema);
 
 // const getDb = require('../util/db').getdb;
 // class Candidates {

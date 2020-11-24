@@ -28,7 +28,7 @@ const user = new schema({
 });
 user.methods.addtocart = function(game){
     const updatedcartitems = [...this.cart.items];
-    console.log(updatedcartitems);
+    
     updatedcartitems.push({
         gameid: game.gameid,
     });
@@ -37,5 +37,8 @@ user.methods.addtocart = function(game){
     }
     console.log(updatedcart);
     this.cart = updatedcart;
+    return this.save();
+    
+
 }
 module.exports = mongoose.model('user',user);
