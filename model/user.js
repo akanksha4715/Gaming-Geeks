@@ -17,8 +17,8 @@ const user = new schema({
     cart : {
         items : [
             {
-            gameid : {
-                type : String,
+            id : {
+                type : schema.Types.ObjectId,
                 ref : 'customers',
                 required : true
             }
@@ -29,7 +29,7 @@ const user = new schema({
 user.methods.addtocart = function(game){
     const updatedcartitems = [...this.cart.items];
     updatedcartitems.push({
-        gameid: game.gameid,
+        id: game._id,
     });
     const updatedcart = {
         items : updatedcartitems

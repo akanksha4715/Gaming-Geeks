@@ -115,20 +115,25 @@
                 <div class="btn-group btn-group-lg">
                 <button id="Upcoming" type="button" class="btn btn-primary">Upcoming</button>
                 <button id="Ongoing" type="button" class="btn btn-primary">Ongoing</button>
-                <button id="Joined" class="<%= path === '/joined' ? 'active' : '' %>" type="button" class="btn btn-primary">Joined</button>
+                <button id="Joined" class="<%= path === '/joined' ? 'focus' : '' %>" type="button" class="btn btn-primary">Joined</button>
                 </div>
         </div>
     </div>  
     <div class="container">
+      <div class="col-md-3"><p></p></div>
+      <div class="col-md-9">
         <% if(game.length>0){
-            game.forEach(game=>{%>
+            game.forEach(game=>{ %>
         <div class="card">
             <h1>
-                <%=game.gameid.gamename%>
+                <%=game.id.gamename%>
             </h1>
         </div>
-        <%})}%>
+        <% })} else{ %>
+          <h1>You have not joined any Game yet</h1>
+          <% } %>
     </div>
+  </div>
  </div>     
     <!--FOOTER PART STARTS HERE-->
   <footer class="panel-footer">

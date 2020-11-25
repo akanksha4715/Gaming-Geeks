@@ -34,9 +34,11 @@ exports.addlogindetails=(req,res,next)=>{
     });
 
     req.user.addtocart(customers); 
+   
     customers.save()
     .then(result=>{
         console.log('Data entered');
+        console.log(req.user.cart);
         res.redirect('/joined');
     }).catch(err=>{
         console.log(err);
@@ -44,13 +46,14 @@ exports.addlogindetails=(req,res,next)=>{
     
 }
 else
-res.send('<h2>You are Underage. Only people who are above 16 can join</h2>');
+res.send('<h2 class="centered">You are Underage. Only people who are above 16 can join</h2>');
 };
 
 exports.getcart=(req,res,next)=>{
-    req.user.populate('cart.items.gameid')
+    req.user.populate('cart.items.id')
     .execPopulate().then(user=>{
         const gamedetails = user.cart.items;
+        console.log(gamedetails);
         console.log(user);
         res.render('cart',{
             game : gamedetails,
