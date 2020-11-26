@@ -28,8 +28,11 @@
         <li class="active"><a href="/home">Home</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if(!isAuthenticated){ %>
         <li><a href="/userRegister"><span ></span>Login</a></li>
-        <li><a href="/userRegister"><span></span>Log Out</a></li>
+        <% } else{ %>
+        <li><a href="/logout"><span></span>Log Out</a></li>
+        <% } %>
       </ul>
         <!--
         <li class="dropdown">
@@ -124,7 +127,7 @@
       </div>
  
  &nbsp;
- 
+      <% if(isAuthenticated){ %>
       <div class="container">
         <form action="/login" >
         <div id="top1" class="card col-lg-3 col-md-3 col-sm-3 col-xs-2">
@@ -314,7 +317,7 @@
             </div> 
         </div>
       </div>
- 
+     
 
 &nbsp;
 
@@ -347,7 +350,10 @@
       </div>
     </div>
 		
-	</footer>
+  </footer>
+  <% } else{ %>
+    <h1>PLEASE LOGIN FIRST!!  </h1>
+    <%}%>
 <!-- Return to Top -->
 <a href="javascript:" id="return-to-top"><i class="fas fa-angle-double-up" ></i></a>
  <!-- Return to Top  ends here -->

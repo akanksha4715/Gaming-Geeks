@@ -32,7 +32,10 @@ const joinroutes = require('./routes/joined');
 const User = require('./model/user');
 
 app.use((req, res, next) => {
-    User.findById('5fbd48074af63036041a9fe5')
+    if (!req.session.user) {
+      return next();
+    }
+    User.findById(req.session.user._id)
       .then(user => {
         req.user = user;
         next();
@@ -47,20 +50,8 @@ app.use(error_routes);
 
 
 //const server = http.createServer(app);
-mongoose.connect(mongoconnectionstring).then(result=>{
-    User.findOne().then(user=>{
-        if(!user){
-            const user = new User({
-                name : 'Akanksha Tomar',
-                email : 'akanksha4715@gmail.com',
-                password : 'akto300247',
-                cart : {
-                    items:[],
-                }
-            });
-            user.save();
-        }       
-    });
+mongoose.connect(mongoconnectionstring)
+.then(result=>{
     app.listen(3000);
 }).catch(err=>{
     console.log(err);

@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 const { model } = require('./candidates');
 const schema=mongoose.Schema;
 const user = new schema({
-    name : {
-        type: String,
-        required: true
-    },
+    
     email : {
         type: String,
         required: true
@@ -13,6 +10,10 @@ const user = new schema({
     password : {
         type: String,
         required: true
+    },
+    phoneNo : {
+        type : String,
+        required : true
     },
     cart : {
         items : [
