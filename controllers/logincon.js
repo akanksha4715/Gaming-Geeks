@@ -6,8 +6,15 @@ const Candidates=require('../model/candidates');
 
 exports.getloginpage=((req,res,next)=>{
     //console.log(req.query.gamename);
-    res.render('login',{gameid: req.query.gameid ,gamename: req.query.gamename , date: req.query.date , time: req.query.time,
-         Members_per_team_allowed: req.query.person_no , PrizePool: req.query.prizepool});
+    res.render('login',{
+        // isAuthenticated: req.session.isLoggedIn,
+         gameid: req.query.gameid ,
+         gamename: req.query.gamename , 
+         date: req.query.date , 
+         time: req.query.time,
+         Members_per_team_allowed: req.query.person_no ,
+          PrizePool: req.query.prizepool
+        });
     });
 
 exports.addlogindetails=(req,res,next)=>{
@@ -50,12 +57,13 @@ res.send('<h2 class="centered">You are Underage. Only people who are above 16 ca
 };
 
 exports.getcart=(req,res,next)=>{
-    req.user.populate('cart.items.id')
-    .execPopulate().then(user=>{
+    req.user.populate('cart.items.id') //Doesn't return a promise so use execPopulate
+    .execPopulate().then(user=>{    //Explicitly executes population and returns a promise
         const gamedetails = user.cart.items;
         console.log(gamedetails);
         console.log(user);
         res.render('cart',{
+            //isAuthenticated: req.session.isLoggedIn,
             game : gamedetails,
             path : '/joined'
         });
