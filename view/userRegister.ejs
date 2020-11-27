@@ -15,12 +15,16 @@
 <body>
 
 <h2>Login Form</h2>
-
+<% if(errormsg){ %>
+  <div>
+    <p> <%=errormsg%> </p>
+  </div>
+<%}%>
 <form action="/userRegister" method="POST">
   <label for="email">E-mail:</label><br>
   <input type="text" id="email" name="email" ><br>
   <label for="pass">Password</label><br>
-  <input type="text" id="pass" name="pass"><br><br>
+  <input type="password" id="pass" name="pass"><br><br>
   <label for="phno">Phone Number</label><br>
   <input type="text" id="phno" name="phno"><br>
   <input type="submit" value="Submit">

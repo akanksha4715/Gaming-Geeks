@@ -6,7 +6,8 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const app= express();
 const mongoose=require('mongoose');
 const mongoconnectionstring='mongodb+srv://Akanksha_Tomar:akto300247@clustergame.7sfe7.mongodb.net/mydb';//?retryWrites=true&w=majority';
-
+//const csurf = require('csurf');
+const flash = require('connect-flash');
 const store = new MongoDBStore({
     uri: mongoconnectionstring,
     collection: 'sessions'
@@ -24,7 +25,8 @@ app.use(
         store: store,
     })
     );
-
+//const csurfprotection = csurf();
+app.use(flash());
 const loginroutes = require('./routes/loginpage');
 const homeroutes = require('./routes/home');
 const error_routes = require('./routes/404');

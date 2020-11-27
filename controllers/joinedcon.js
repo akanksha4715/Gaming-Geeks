@@ -1,8 +1,10 @@
 const User = require('../model/user');
 const bcrypt = require('bcryptjs');
+
+
 exports.getpage=(req,res,next)=>{
     res.render('userRegister',{
-        
+        errormsg : req.flash('error'),
     });
 }
 
@@ -42,6 +44,7 @@ exports.getpage=(req,res,next)=>{
               res.redirect('/home');
             });
           }
+          req.flash('error','Invalid password');
           res.redirect('/userRegister');
         })
         .catch(err => {
