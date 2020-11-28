@@ -27,6 +27,7 @@ exports.getpage=(req,res,next)=>{
           });
           req.session.isLoggedIn = true;
           req.session.user = user;
+          req.session.email =email;
           return user.save();
         })
         .then(result => {
@@ -39,6 +40,7 @@ exports.getpage=(req,res,next)=>{
           if (doMatch) {
             req.session.isLoggedIn = true;
             req.session.user = user;
+            req.session.email =email;
             return req.session.save(err => {
               console.log(err);
               res.redirect('/home');
