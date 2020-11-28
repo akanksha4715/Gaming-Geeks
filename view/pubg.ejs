@@ -129,7 +129,7 @@
  &nbsp;
       <% if(isAuthenticated){ %>
       <div class="container">
-        <form action="/login" >
+        <form action="/login">
         <div id="top1" class="card col-lg-3 col-md-3 col-sm-3 col-xs-2">
           <img class="img" src="/images/cardpubg.jpg" alt="PUBG" >
             <div class="container">
@@ -146,6 +146,7 @@
               <input type="hidden" name="time" value="1700">
               <input type="hidden" name="person_no" value="1">
               <input type="hidden" name="prizepool" value="1000">
+              <input type="hidden" name="fees" value="20">
               <p><button type="submit" onclick="location.href='/login'">Join For ₹20</button></p>
             </div>
         </div>

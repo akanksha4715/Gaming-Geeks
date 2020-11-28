@@ -33,6 +33,13 @@ const candSchema = new Schema({
         type:String,
         required:true
     },
+    fees : {
+        type : String,
+        required : true
+    },
+    paid : {
+        type : Boolean,
+    },
     userid : {
         type: Schema.Types.ObjectId,
         required : true,

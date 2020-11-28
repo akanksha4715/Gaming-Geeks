@@ -3,6 +3,7 @@ const url = require('url');
 const Candidates=require('../model/candidates');
 const nodemailer = require('nodemailer');
 const sendgrid = require('nodemailer-sendgrid-transport');
+const stripe = require('stripe')('sk_test_51HsC49GLqLmUJKTaKNYtNLsS2PYa8CwsOdHpVT4isN47lpNhbpz71d3I0cXIc0oUPK8BInxWU89KSavSsvxZzCgV00kM132HbA');
 
 const transporter = nodemailer.createTransport(sendgrid({
     auth : {
@@ -12,7 +13,21 @@ const transporter = nodemailer.createTransport(sendgrid({
 }));
 
 exports.getloginpage=((req,res,next)=>{
-    //console.log(req.query.gamename);
+    const fee =req.query.fees;
+    const gamename=req.query.gamename;
+    return stripe.checkout.sessions.create({
+        payment_method_types : ['card'],
+        line_items :  [
+            {
+            name : gamename,
+            amount : fee*100,
+            currency : 'inr',
+            quantity : 1,
+            },
+        ],
+        success_url: req.protocol + '://' + req.get('host') + '/joined/success', // => http://localhost:3000
+        cancel_url: req.protocol + '://' + req.get('host') + '/login'
+    }).then(session =>{
     res.render('login',{
         // isAuthenticated: req.session.isLoggedIn,
          gameid: req.query.gameid ,
@@ -20,8 +35,13 @@ exports.getloginpage=((req,res,next)=>{
          date: req.query.date , 
          time: req.query.time,
          Members_per_team_allowed: req.query.person_no ,
-          PrizePool: req.query.prizepool
+          PrizePool: req.query.prizepool,
+          fees : req.query.fees,
+          sessionid : session.id,
         });
+    }).catch(err=>{
+        console.log(err);
+    });
     });
 
 exports.addlogindetails=(req,res,next)=>{
@@ -34,6 +54,7 @@ exports.addlogindetails=(req,res,next)=>{
        const PrizePool= req.body.prizepool;
         const Id = req.body.uname;
         const Age = req.body.age;
+        const fee= req.body.fees;
         const email = req.session.email;
         if(Age>=16){
     const customers= new Candidates({
@@ -45,15 +66,17 @@ exports.addlogindetails=(req,res,next)=>{
         prizepool: PrizePool,
        username: Id,
        age: Age,
+       fees:fee,
+       paid : false,
        userid : req.user._id,
     });
 
     req.user.addtocart(customers); 
-   
+    
     customers.save()
     .then(result=>{
         console.log('Data entered');
-        res.redirect('/joined');
+        //res.redirect('/joined');
         transporter.sendMail({
             to: email,
             from : 'hellogaminggeek@gmail.com',
@@ -81,6 +104,20 @@ exports.getcart=(req,res,next)=>{
             path : '/joined'
         });
     }).catch(err=>{
+        console.log(err);
+    });
+};
+exports.paid=(req,res,next)=>{
+    const id = req.user._id;
+    Candidates.findOne({userid:id,paid :false})
+    .then(user=>{
+        user.paid = true;
+        return user.save();
+    })
+    .then(result=>{
+        res.redirect('/joined');
+    })
+    .catch(err=>{
         console.log(err);
     });
 };

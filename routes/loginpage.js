@@ -7,5 +7,6 @@ const logincontroller = require('../controllers/logincon');
 router.get('/login',logincontroller.getloginpage);
 router.post('/login',logincontroller.addlogindetails);
 router.get('/joined',logincontroller.getcart);
+router.get('/joined/success',logincontroller.paid);
 
 module.exports = router;      
