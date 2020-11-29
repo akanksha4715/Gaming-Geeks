@@ -45,19 +45,22 @@ body {
   .btn-group button:focus {
     background-color: #e6001a;
     border: 1px solid White; 
+    color: #f2f2f2;
   }
   .btn-group button:active{
     background-color: #e6001a;
     border: 1px solid White; 
+    color: #f2f2f2;
   }
   .btn-group button {
     background-color: rgba(0,0,0,0.95);
     border: 1px solid White; 
-    color: grey; 
+    color:azure; 
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
-    width: 250px;
-    float:left;/* Float the buttons side by side */ 
+    width: 400px;
+    float:left; /* Float the buttons side by side */ 
+    
   }
   button {
     border: none;

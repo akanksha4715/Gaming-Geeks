@@ -37,22 +37,24 @@ body {
   .btn-group button:hover {
     background-color: #e6001a;
     border: 1px solid White; 
+    color: #f2f2f2;
   }
   .btn-group button:focus {
     background-color: #e6001a;
-    border: 1px solid White; 
+    border: 1px solid White;
+    color: #f2f2f2; 
   }
   .btn-group button:active{
     background-color: #e6001a;
-    border: 1px solid White; 
+    border: 1px solid  #e6001a; 
   }
   .btn-group button {
     background-color: rgba(0,0,0,0.95);
     border: 1px solid White; 
-    color: grey; 
+    color: azure; 
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
-    width: 250px;
+    width: 400px;
     float:left;/* Float the buttons side by side */ 
   }
   button {
@@ -131,17 +133,18 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 10px; /* 10px rounded corners */
-    color: WHITE;
+    color: antiquewhite;
     padding: 10px;
-    margin: 10px;
-    width: 22%;
-  }
-  .card:hover {
+    margin: 25px;
+    width: 80%;
     box-shadow: 0 8px 16px 0 #e6001a;
   }
   h1{
     text-align: center;
     color: antiquewhite;
+  }
+  #gamename{
+    text-align: center;
   }
   /*sugandha ka*/ 
   /* this is for red color on sidebar and menu bar*/

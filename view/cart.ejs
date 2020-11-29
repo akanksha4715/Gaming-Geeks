@@ -94,8 +94,8 @@
         </section>  
         <div class="col-md-9">
                 <div class="btn-group btn-group-lg">
-                <button id="Upcoming" type="button" class="btn btn-primary">Upcoming</button>
-                <button id="Ongoing" type="button" class="btn btn-primary">Ongoing</button>
+                <button id="Upcoming" type="button" class="btn btn-primary" onclick="location.href='/home'">Upcoming</button>
+                
                 <button id="Joined" class="<%= path === '/joined' ? 'focus' : '' %>" type="button" class="btn btn-primary">Joined</button>
                 </div>
         </div>
@@ -103,14 +103,18 @@
     <div class="container">
       <div class="col-md-3"><p></p></div>
       <div class="col-md-9">
-        <% if(game.length>0){
-            game.forEach(game=>{ %>
-        <div class="card">
-            <h2>
-                <%=game.id.gamename%>
+        <% if(game.length>0 ){
+            game.forEach(game=>{ 
+              if(game.id.paid===true){%>
+        <div id="gamename" class="card">
+            <h2 >
+                 <%=game.id.gamename%>
             </h2>
+            <h5>Username : <%=game.id.username%></h5>
+            <h5>Date :<%=game.id.date%></h5>
+            <h5>Time : <%=game.id.time%> hrs</h5>
         </div>
-        <% })} else{ %>
+        <% }})} else{ %>
           <h1>You have not joined any Game yet</h1>
           <% } %>
     </div>

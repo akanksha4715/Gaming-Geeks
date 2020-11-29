@@ -120,9 +120,9 @@
       </section>  
       <div class="col-md-9">
               <div class="btn-group btn-group-lg">
-                <button id="Upcoming"  class="<%= path === '/home' ? 'focus' : '' %>" type="button" class="btn btn-primary">Upcoming</button>
-                 <button id="Ongoing" type="button" class="btn btn-primary">Ongoing</button>
-                 <button id="Joined" class="<%= path === '/joined' ? 'active' : '' %>" type="button" class="btn btn-primary onclick="location.href='/joined'">Joined</button>
+                <button id="Upcoming"  class="<%= path === '/home' ? 'focus' : '' %>" type="button" class="btn btn-primary" onclick="location.href='/home'">Upcoming</button>
+                 <!-- <button id="Ongoing" type="button" class="btn btn-primary">Ongoing</button> -->
+                 <button id="Joined" class="<%= path === '/joined' ? 'active' : '' %>" type="button" class="btn btn-primary" onclick="location.href='/joined'">Joined</button>
               </div>
       </div>
  
