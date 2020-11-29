@@ -90,6 +90,7 @@
 &nbsp;
 <p></p> 
 &nbsp; 
+<% if(isAuthenticated){ %>
 <!--Main content-->
 <div class="container">
       
@@ -127,7 +128,7 @@
       </div>
  
  &nbsp;
-      <% if(isAuthenticated){ %>
+      
       <div class="container">
         <form action="/login">
         <div id="top1" class="card col-lg-3 col-md-3 col-sm-3 col-xs-2">
@@ -427,24 +428,17 @@
   <footer class="panel-footer">
     <div class="container">
       <div class="row">
-        <section id="about" class="col-sm-4">
-          <span>About Us</span><br>
-          This
-          is a
-          paragraph 
-          which 
-          explains 
-          'us'.
-        </section>
-        <section id="contact" class="col-sm-4">
-          <span>Contact Us</span><br>
+        <section id="contact" class="col-sm-6">
+          <h4>In Case of Any Query Contact:</h4>        
           <span class="glyphicon glyphicon-earphone"></span>
           <span>+91-9643143306</span>
+          <span class="glyphicon glyphicon-map-marker"></span>
+          <span>Delhi, India</span>     
         </section>
-        <section id="rules" class="col-sm-4">
-          <span>Rules</span><br>
-          <span class="glyphicon glyphicon-earphone"></span>
-          <span>blah blah blah</span>
+        <section id="rules" class="col-sm-6">
+          <h4>Prize Money Distribution Mode:</h4>  
+          <span class="glyphicon glyphicon-gift"></span>    
+          <span>PayTM</span>
         </section>
       </div>
     </div>
