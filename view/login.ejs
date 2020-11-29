@@ -9,11 +9,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
-<h2>ENTER THE TOURNAMENT</h2>
+  <h1>Only Leader Of The Team Must Register!!</h1>
+<div id="form">
 <form action="/login" method="post">
+  <h1>ENTER THE MATCH</h1>
   <input type="hidden" name="gameid" value="<%= gameid %>">
   <input type="hidden" name="gamename" value="<%= gamename %>">
   <input type="hidden" name="date" value="<%= date %>">
@@ -21,17 +23,16 @@
   <input type="hidden" name="person_no" value="<%= Members_per_team_allowed %>">
   <input type="hidden" name="prizepool" value="<%= PrizePool %>">
 
-    <label for="uname">ENTER YOUR GAME ID</label><br>
+    <label for="uname">ENTER YOUR GAME ID:</label><br>
     <input type="text" name="uname" placeholder="jetInsider" required><br>
-    <label for="age">ENTER YOUR AGE</label><br>
+    <label for="age">ENTER YOUR AGE:</label><br>
     <input type="text" name="age" placeholder="Minimum 16 is required" required><br>
-    <label for="uname">Charges: </label><br>
-    <input type="text" name="fees" value="<%= fees %>" readonly><br>
-    <nbsp></nbsp>
-    <input type="submit" value="Add Me"> 
+    <label for="uname">Charges:</label><br>
+    <input type="text" name="fees" value="₹<%= fees %>" readonly><br>
+    <input id="paybtn1" type="submit" value="Add Me"> 
 </form>
-<div class="btn-group">
-<button id="paybtn" class="btn">Pay</button>
+<div >
+<button  id="paybtn">Pay</button> 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   var stripe = Stripe('pk_test_51HsC49GLqLmUJKTaNZFV9Fm2pN5Yy1v7mUc4d2gxhNm9juaDzufbEnx19NxVKZ4UKkwBx8cKiEwEqLDMSgr3BXEQ00ZSF6RUKs');
@@ -43,5 +44,14 @@
   });
 </script>
 </div>
+</div>
+<!--FOOTER PART STARTS HERE-->
+<footer class="panel-footer">
+  <div class="container">
+    <p>First Press "Add Me" Then Make The Payment</p>
+  </div>
+  
+</footer>
+
 </body>
 </html>

@@ -9,26 +9,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="">
+  <link rel="stylesheet" type="text/css" href="/css/userReg.css">
 </head>
 
 <body>
 
-<h2>Login Form</h2>
+
 <% if(errormsg){ %>
   <div>
     <p> <%=errormsg%> </p>
   </div>
 <%}%>
+<div id="form">
+  <h1>SIGN IN/SIGN UP</h1>
 <form action="/userRegister" method="POST">
-  <label for="email">E-mail:</label><br>
+  <label for="email">E-mail:</label>
   <input type="text" id="email" name="email" ><br>
-  <label for="pass">Password</label><br>
-  <input type="password" id="pass" name="pass"><br><br>
-  <label for="phno">Phone Number</label><br>
-  <input type="text" id="phno" name="phno"><br>
-  <input type="submit" value="Submit">
+  <label for="pass">Password:</label>
+  <input type="password" id="pass" name="pass"><br>
+  <label for="phno">Phone Number:</label>
+  <input type="text" id="phno" name="phno"><br><br>
+  <input type="submit" id="button" value="Submit">
 </form> 
+</div>
 
 
 

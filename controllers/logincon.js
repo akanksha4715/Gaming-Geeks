@@ -81,7 +81,7 @@ exports.addlogindetails=(req,res,next)=>{
             to: email,
             from : 'hellogaminggeek@gmail.com',
             subject : 'JOINED SUCCESSFULLY',
-            html : '<h1>You have successfully joined the game</h1><br><h3>RoomID will be shared via SMS 1 hour prior to the scheduled time of the game</h3>'
+            html : '<h1>May The Force Be With You!</h1><br><h3>RoomID will be shared via SMS 1 hour prior to the scheduled time of the game</h3>'
         });
     }).catch(err=>{
         console.log(err);
@@ -89,7 +89,7 @@ exports.addlogindetails=(req,res,next)=>{
     
 }
 else
-res.send('<h2 class="centered">You are Underage. Only people who are above 16 can join</h2>');
+res.send('<h2 style ="text-align: center">You are Underage. Only people who are above 16 can join</h2>');
 };
 
 exports.getcart=(req,res,next)=>{

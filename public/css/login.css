@@ -1,0 +1,69 @@
+body {
+    background-color: rgba(0,0,0,0.90);
+    color: azure;
+  }
+  h1 {
+      text-align: center;
+      
+  }
+#button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #e6001a;
+    text-align: center;
+    cursor: pointer;
+    width: 45%;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-left: 26%;
+  }
+  #form {
+    border: 5px solid  #e6001a;
+    padding-left: 100px;
+    padding-right: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 25%;
+    margin-top: 8%;
+    margin-bottom: 15%;
+    margin-right: 40%;
+    width: 800px;
+  }
+  label{
+    padding: 12px 12px 12px 0;
+    font-size: x-large;
+  }
+  input[type=text]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    color: black;
+  }
+  #paybtn,#paybtn1{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #e6001a;
+    text-align: center;
+    cursor: pointer;
+    width: 45%;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-left: 26%;
+  }
+  footer.panel-footer {
+    background-color: rgba(0,0,0,0.95);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+  

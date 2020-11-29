@@ -89,26 +89,7 @@
     <div class="row">   
         <section>    
           <div id="checkbox" class="col-md-3">
-            <div class="row">
-              <label id="label">Filter By:</label>
-              <button id="btn-link" type="button" class="btn btn-link" onclick="clearall()">Clear All</button>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1" checked="true">
-              <label id="label" class="custom-control-label" for="customCheck1">All</label>
-             </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck2" >
-              <label id="label" class="custom-control-label" for="customCheck2">Pubg Mobile</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck3">
-              <label id="label" class="custom-control-label" for="customCheck3">Galena Free Fire</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck4">
-              <label id="label" class="custom-control-label" for="customCheck4">Call Of Duty Mobile</label>
-             </div>
+            <h3>Kindly Check Your Mail for Details.</h3>
           </div>
         </section>  
         <div class="col-md-9">
@@ -125,9 +106,9 @@
         <% if(game.length>0){
             game.forEach(game=>{ %>
         <div class="card">
-            <h1>
+            <h2>
                 <%=game.id.gamename%>
-            </h1>
+            </h2>
         </div>
         <% })} else{ %>
           <h1>You have not joined any Game yet</h1>

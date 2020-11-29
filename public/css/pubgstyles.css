@@ -4,6 +4,10 @@ body {
   * {
     box-sizing:border-box
   }
+  h1{
+    text-align: center;
+    color: antiquewhite;
+  }
   .glyphicon {
          font-size: 15px;
          margin-left: 3%;
