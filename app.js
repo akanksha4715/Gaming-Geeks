@@ -5,7 +5,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const app= express();
 const mongoose=require('mongoose');
-const mongoconnectionstring=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clustergame.7sfe7.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE }';//?retryWrites=true&w=majority`;
+const mongoconnectionstring='mongodb+srv://Akanksha_Tomar:akto300247@clustergame.7sfe7.mongodb.net/mydb;' //?retryWrites=true&w=majority`;
 //const csurf = require('csurf');
 const flash = require('connect-flash');
 const store = new MongoDBStore({

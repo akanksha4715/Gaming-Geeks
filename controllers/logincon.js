@@ -3,7 +3,7 @@ const url = require('url');
 const Candidates=require('../model/candidates');
 const nodemailer = require('nodemailer');
 const sendgrid = require('nodemailer-sendgrid-transport');
-const stripe = require('stripe')(process.env.STRIPE_KEY);   //('sk_test_51HsC49GLqLmUJKTaKNYtNLsS2PYa8CwsOdHpVT4isN47lpNhbpz71d3I0cXIc0oUPK8BInxWU89KSavSsvxZzCgV00kM132HbA');
+const stripe = require('stripe')('sk_test_51HsC49GLqLmUJKTaKNYtNLsS2PYa8CwsOdHpVT4isN47lpNhbpz71d3I0cXIc0oUPK8BInxWU89KSavSsvxZzCgV00kM132HbA');//(process.env.STRIPE_KEY);   //('sk_test_51HsC49GLqLmUJKTaKNYtNLsS2PYa8CwsOdHpVT4isN47lpNhbpz71d3I0cXIc0oUPK8BInxWU89KSavSsvxZzCgV00kM132HbA');
 
 const transporter = nodemailer.createTransport(sendgrid({
     auth : {
