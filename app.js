@@ -15,7 +15,7 @@ const store = new MongoDBStore({
 
 app.set('view engine','ejs');
 app.set('views','view');
-app.use(bodyParser.urlencoded({extended:false}));     //will parse all the incoming text
+app.use(bodyParser.urlencoded({extended:false}));     //will parse all the incoming text eg req.body won't work without it as the result would be undefined
 app.use(express.static(path.join(__dirname,'public')));
 app.use(
     session({
